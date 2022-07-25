@@ -1,0 +1,122 @@
+
+/* 공용 */
+
+*{
+    box-sizing: border-box;
+    outline: none;
+    font-family: sans-serif;
+}
+
+body{
+    margin: 0;
+}
+
+section{
+    padding: 100px 20%;
+}
+
+hr{
+    border: solid 1px #e5e5e5;
+    margin-bottom: 60px;
+}
+
+/* Map 섹션 */
+
+.map input {
+    display: none;
+}
+
+.map .radio{
+    display: none;
+}
+
+.map #l{
+    font-size: 23px;
+    font-weight: bolder;
+    color: #6c8b69;
+    position: absolute;
+    cursor: pointer;
+}
+
+
+.map #l[for="r1"]{
+    margin-left: 7.35%;
+    margin-top: 8.4%;
+}
+
+.map #l[for="r2"]{
+    margin-left: 15.6%;
+    margin-top: 10.5%;
+}
+
+.map #l[for="r3"]{
+    margin-top: 15.4%;
+    margin-left: 4.2%;
+}
+
+.map #l[for="r4"]{
+    margin-top: 16.2%;
+    margin-left: 19.5%;
+}
+
+.map #l[for="r5"]{
+    margin-top: 19.6%;
+    margin-left: 14.1%;
+}
+
+.map input[type="radio"]:checked + label#l[for="r1"],
+.map input[type="radio"]:checked + label#l[for="r2"],
+.map input[type="radio"]:checked + label#l[for="r3"],
+.map input[type="radio"]:checked + label#l[for="r4"],
+.map input[type="radio"]:checked + label#l[for="r5"]{
+    color: #000000;
+}
+
+div.info{
+    display: none;
+}
+
+.map input[type="radio"]#r1:checked ~ div.info#cont1,
+.map input[type="radio"]#r2:checked ~ div.info#cont2,
+.map input[type="radio"]#r3:checked ~ div.info#cont3,
+.map input[type="radio"]#r4:checked ~ div.info#cont4,
+.map input[type="radio"]#r5:checked ~ div.info#cont5{
+    display: block;
+}
+
+.map .title{
+    font-size: 32px;
+    font-weight: 500;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+.map .cont{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+}
+
+.map .cont img{
+    width: 100%;
+}
+
+.map .cont .info{
+    width: 100%;
+}
+
+.map .cont .info{
+    background-color: #f7f7f7;
+    padding: 30px;
+    border-radius: 20px;
+}
+
+/* 파이 테스트 */
+#pie-chart1 {
+    display:inline-block;
+    width: 300px;
+    height: 300px;
+    background: conic-gradient(#8b22ff 0% 25%, #ffc33b 25% 56%, #21f3d6 56% 100%);
+    border-radius: 50%;
+}
+
