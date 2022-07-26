@@ -12,7 +12,7 @@ body{
 }
 
 section{
-    padding: 100px 20%;
+    padding: 100px 15%;
 }
 
 hr{
@@ -40,28 +40,28 @@ hr{
 
 
 .map #l[for="r1"]{
-    margin-left: 7.35%;
-    margin-top: 8.4%;
+    margin-left: 8.5%;
+    margin-top: 9.8%;
 }
 
 .map #l[for="r2"]{
-    margin-left: 15.6%;
-    margin-top: 10.5%;
+    margin-left: 17.9%;
+    margin-top: 12.3%;
 }
 
 .map #l[for="r3"]{
-    margin-top: 15.4%;
-    margin-left: 4.2%;
+    margin-top: 18%;
+    margin-left: 4.8%;
 }
 
 .map #l[for="r4"]{
-    margin-top: 16.2%;
-    margin-left: 19.5%;
+    margin-top: 18.75%;
+    margin-left: 22.3%;
 }
 
 .map #l[for="r5"]{
-    margin-top: 19.6%;
-    margin-left: 14.1%;
+    margin-top: 22.7%;
+    margin-left: 16.2%;
 }
 
 .map input[type="radio"]:checked + label#l[for="r1"],
@@ -73,15 +73,24 @@ hr{
 }
 
 div.info{
-    display: none;
+    visibility: hidden;
+    opacity: 0;
+    height: 0px;
+    padding: 0;
+    overflow: hidden;
 }
 
-.map input[type="radio"]#r1:checked ~ div.info#cont1,
-.map input[type="radio"]#r2:checked ~ div.info#cont2,
-.map input[type="radio"]#r3:checked ~ div.info#cont3,
-.map input[type="radio"]#r4:checked ~ div.info#cont4,
-.map input[type="radio"]#r5:checked ~ div.info#cont5{
-    display: block;
+.map input[type="radio"]#r1:checked ~ div.conts div.info#cont1,
+.map input[type="radio"]#r2:checked ~ div.conts div.info#cont2,
+.map input[type="radio"]#r3:checked ~ div.conts div.info#cont3,
+.map input[type="radio"]#r4:checked ~ div.conts div.info#cont4,
+.map input[type="radio"]#r5:checked ~ div.conts div.info#cont5{
+    visibility: visible;
+    opacity: 1;
+    background-color: #f7f7f7;
+    height: auto;
+    padding: 30px;
+    border-radius: 20px;
 }
 
 .map .title{
@@ -101,22 +110,99 @@ div.info{
     width: 100%;
 }
 
-.map .cont .info{
+div.databtn{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+
+div.databtn label{
+    font-size: 18px;
+}
+
+input#data1:checked ~ div.conts div.info div.databtn label#i[for="data1"],
+input#data2:checked ~ div.conts div.info div.databtn label#i[for="data2"],
+input#data3:checked ~ div.conts div.info div.databtn label#i[for="data3"]{
+    font-weight: bolder;
+}
+
+
+div.datainfo{
+    text-align: center;
+}
+
+/* 막대 그래프 */
+
+input#data2:checked ~ div.conts div.info div.axis{
+    display: block;
+}
+
+div.info div.axis{
+    display: none;
+}
+
+div.axis .item{
+    margin-bottom: 10px;
+    height: 25px;
+    display: block;
+}
+
+div.axis .item:nth-of-type(1){
     width: 100%;
+    background-color: #000000;
+    animation: 1s axis1;
 }
 
-.map .cont .info{
-    background-color: #f7f7f7;
-    padding: 30px;
-    border-radius: 20px;
+div.axis .item:nth-of-type(2){
+    width: 40%;
+    background-color: #717171;
+    animation: 1s axis2;
 }
 
-/* 파이 테스트 */
-#pie-chart1 {
-    display:inline-block;
+div.axis .item:nth-of-type(3){
+    width: 70%;
+    background-color: #b0b0b0;
+    animation: 1s axis3;
+}
+
+@keyframes axis1{
+    from{
+        width: 0%;
+    }
+    to{
+        width: 100%;
+    }
+}
+
+@keyframes axis2{
+    from{
+        width: 0%;
+    }
+    to{
+        width: 40%;
+    }
+}
+
+@keyframes axis3{
+    from{
+        width: 0%;
+    }
+    to{
+        width: 70%;
+    }
+}
+
+
+/* 파이 */
+.pie-chart {
+    display:none;
     width: 300px;
     height: 300px;
     background: conic-gradient(#8b22ff 0% 25%, #ffc33b 25% 56%, #21f3d6 56% 100%);
     border-radius: 50%;
 }
 
+input#data1:checked ~ div.conts div.info div.pie-chart{
+    display: inline-block;
+}
